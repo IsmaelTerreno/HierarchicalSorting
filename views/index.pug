@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 Welcome to #{title}
+  p='Select the file to process: '
+    ul
+        li
+            a(href='/sort-file/example.in') example.in
+        li
+            a(href='/sort-file/data.in') data.in
+  if outputPath
+    p To see the output processed file go to the path: #{outputPath}
+  p(style='text-align: center; font-size: 36px; text-transform: capitalize;') input
+    table(style='width:100%; text-align: left;')
+        tr
+            each col in columnsData
+                th(style='padding: 5px; border-bottom: solid 1px #ccc;')= col
+        each row in dataIn
+          tr
+            each cel in row
+              td(style='padding: 5px; border-bottom: solid 1px #ccc;')= cel
+
+  p(style='text-align: center; font-size: 36px; text-transform: capitalize;') output
+    table(style='width:100%; text-align: left;')
+        tr
+            each col1 in columnsData
+                th(style='padding: 5px; border-bottom: solid 1px #ccc;')= col1
+        each row1 in dataOut
+          tr
+            each cel1 in row1
+              td(style='padding: 5px; border-bottom: solid 1px #ccc;')= cel1
